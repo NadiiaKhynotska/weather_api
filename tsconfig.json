@@ -1,0 +1,18 @@
+
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noUnusedParameters": false,
+  }
+}

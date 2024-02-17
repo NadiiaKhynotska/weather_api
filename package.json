@@ -1,0 +1,22 @@
+{
+  "name": "weather_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "rimraf dist && tsc-watch --onSuccess 'npm run dev'",
+    "dev": "nodemon 'src/main.ts' --watch './src'"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "nodemon": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "ts-node": "^10.9.2",
+    "tsc-watch": "^6.0.4"
+  }
+}
