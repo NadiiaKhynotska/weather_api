@@ -11,91 +11,96 @@ app.use(express.urlencoded({ extended: true }));
 
 /**
  * @swagger
- * /weather:
- *   get:
- *     summary: Get current weather by city name or geolocations
- *     description: Returns current weather by city name or geolocations.
- *     parameters:
- *       - in: query
- *         name: city
- *         schema:
- *           type: string
- *         required: false
- *         description: The name of the city for which you want to get the current weather.
- *         example: London
- *       - in: query
- *         name: lat
- *         schema:
- *           type: number
- *         required: false
- *         description: The latitude coordinate of the location for which you want to get the current weather.
- *         example: 51.5074
- *       - in: query
- *         name: lon
- *         schema:
- *           type: number
- *         required: false
- *         description: The longitude coordinate of the location for which you want to get the current weather.
- *         example: -0.1278
- *     responses:
- *       '200':
- *         description: Current weather.
- *         content:
- *           application/json:
- *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: object
- *                   properties:
- *                     weather:
- *                       type: array
- *                       items:
+ * tags:
+ *   - name: Get weather
+ *     description: Return current weather
+ * paths:
+ *   /weather:
+ *     get:
+ *       summary: Get current weather by city name or geolocations
+ *       description: Returns current weather by city name or geolocations.
+ *       tags: [Get weather]
+ *       parameters:
+ *         - in: query
+ *           name: city
+ *           schema:
+ *             type: string
+ *           required: false
+ *           description: The name of the city for which you want to get the current weather.
+ *           example: London
+ *         - in: query
+ *           name: lat
+ *           schema:
+ *             type: number
+ *           required: false
+ *           description: The latitude coordinate of the location for which you want to get the current weather.
+ *           example: 51.5074
+ *         - in: query
+ *           name: lon
+ *           schema:
+ *             type: number
+ *           required: false
+ *           description: The longitude coordinate of the location for which you want to get the current weather.
+ *           example: -0.1278
+ *       responses:
+ *         '200':
+ *           description: Current weather.
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 properties:
+ *                   data:
+ *                     type: object
+ *                     properties:
+ *                       weather:
+ *                         type: array
+ *                         items:
+ *                           type: object
+ *                           properties:
+ *                             id:
+ *                               type: number
+ *                             main:
+ *                               type: string
+ *                             description:
+ *                               type: string
+ *                             icon:
+ *                               type: string
+ *                       main:
  *                         type: object
  *                         properties:
- *                           id:
+ *                           temp:
  *                             type: number
- *                           main:
- *                             type: string
- *                           description:
- *                             type: string
- *                           icon:
- *                             type: string
- *                     main:
- *                       type: object
- *                       properties:
- *                         temp:
- *                           type: number
- *                         feels_like:
- *                           type: number
- *                         temp_min:
- *                           type: number
- *                         temp_max:
- *                           type: number
- *                         pressure:
- *                           type: number
- *                         humidity:
- *                           type: number
- *                         sea_level:
- *                           type: number
- *                         grnd_level:
- *                           type: number
- *                     visibility:
- *                       type: number
- *                     wind:
- *                       type: object
- *                       properties:
- *                         speed:
- *                           type: number
- *                         deg:
- *                           type: number
- *                         gust:
- *                           type: number
- *                     clouds:
- *                       type: object
- *                       properties:
- *                         all:
- *                           type: number
+ *                           feels_like:
+ *                             type: number
+ *                           temp_min:
+ *                             type: number
+ *                           temp_max:
+ *                             type: number
+ *                           pressure:
+ *                             type: number
+ *                           humidity:
+ *                             type: number
+ *                           sea_level:
+ *                             type: number
+ *                           grnd_level:
+ *                             type: number
+ *                       visibility:
+ *                         type: number
+ *                       wind:
+ *                         type: object
+ *                         properties:
+ *                           speed:
+ *                             type: number
+ *                           deg:
+ *                             type: number
+ *                           gust:
+ *                             type: number
+ *                       clouds:
+ *                         type: object
+ *                         properties:
+ *                           all:
+ *                             type: number
  *               example:
  *                 data:
  *                   weather:
@@ -119,10 +124,10 @@ app.use(express.urlencoded({ extended: true }));
  *                     gust: 9.82
  *                   clouds:
  *                     all: 88
- *       '404':
- *         description: Enter city name, latitude, or longitude.
- *       '500':
- *         description: Internal server error.
+ *         '404':
+ *           description: Enter city name, latitude, or longitude.
+ *         '500':
+ *           description: Internal server error.
  */
 
 app.use("/weather", weatherRouter);
