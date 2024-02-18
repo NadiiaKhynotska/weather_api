@@ -5,10 +5,10 @@ import * as swaggerUi from "swagger-ui-express";
 export const initSwagger = (app: Express) => {
   const options: swaggerJsdoc.Options = {
     definition: {
-      openapi: "3.0.0", // Версія специфікації Swagger
+      openapi: "3.0.0",
       info: {
-        title: "Express API with Swagger", // Заголовок документації
-        version: "2.0.0", // Версія вашого API
+        title: "Weather API ",
+        version: "1.0.0",
       },
       servers: [
         {
