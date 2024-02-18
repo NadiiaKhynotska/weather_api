@@ -14,7 +14,7 @@ class WeatherService {
 
       return data;
     } catch (e) {
-      throw new ApiError("Enter city name or reo location", 400);
+      throw new ApiError("Enter city name or geolocation", 404);
     }
   }
 }
